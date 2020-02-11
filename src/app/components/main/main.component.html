@@ -1,0 +1,17 @@
+<div class="container">
+    <nz-affix>
+        <app-sidebar [cardInfo]="cardInfo" class="info-menu"></app-sidebar>
+    </nz-affix>
+
+    <div class="cards">
+        <app-card (infoCard)="getSelectedCard($event)" *ngFor="let card of cardsInfo" class="card" [card]="card">
+        </app-card>
+    </div>
+
+    <nz-affix class="button" nzOffsetBottom="20">
+        <button nzSize="large" nzShape="round" nz-button [nzType]="'primary'" (click)="addNewAppointment()">
+            <i nz-icon nzType="plus" nzTheme="outline"></i>
+            ADD NEW
+        </button>
+    </nz-affix>
+</div>

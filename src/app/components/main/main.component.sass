@@ -1,0 +1,27 @@
+@import 'variables'
+
+.container
+    overflow-x: hidden
+    overflow-y: auto
+    
+    .cards
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-around
+        margin-top: 2em
+
+        .card
+            margin-bottom: 2em
+
+    .button
+        margin-left: 2em
+
+.container::-webkit-scrollbar
+    width: 8px
+    height: 8px
+.container::-webkit-scrollbar-thumb
+    background: #ccc
+    border-radius: 4px
+.container::-webkit-scrollbar-thumb:active
+    background: #b3b3b3
+    box-shadow: $box-shadow

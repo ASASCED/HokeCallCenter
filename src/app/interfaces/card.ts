@@ -1,0 +1,30 @@
+export interface Card {
+  idAppointment: number;
+  quoteNumberItc: number;
+  idContactSendHub: any;
+  firstName: string;
+  middleName: any;
+  lastname: string;
+  fullName: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  createdOn: string;
+  dateTimeAppointment: string;
+  usr: any;
+  csr: string;
+  idStatus: number;
+  idStatusType: number;
+  statusTypeName: string;
+  statusAppointment1: string;
+  idOfficeFrom: number;
+  officeNameFrom: string;
+  idOfficeTo: number;
+  officeNameTo: string;
+  idLanguage: number;
+  language1: string;
+  cellPhone: string;
+  idlogin: number;
+  active: boolean;
+}

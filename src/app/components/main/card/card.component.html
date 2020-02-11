@@ -1,0 +1,15 @@
+<nz-card class="card" [nzTitle]="card.fullName | uppercase" [nzExtra]="extraTemplate" [nzActions]="[actionEdit, seeMore]">
+    <p>Mobile: {{card.cellPhone}}</p>
+    <p>Date: {{card.createdOn | date: 'M/d/yy'}}</p>
+    <p>Type: {{card.statusTypeName}}</p>
+    <p>Status: {{card.active}}</p>
+</nz-card>
+<ng-template #extraTemplate>
+    <strong>{{card.quoteNumberItc}}</strong>
+</ng-template>
+<ng-template #actionEdit>
+    <i nz-icon nzType="edit" (click)="editAppointment()"></i>
+</ng-template>
+<ng-template #seeMore>
+    <i (click)="selectedCard()" nz-icon nzType="eye" nzTheme="outline"></i>
+</ng-template>

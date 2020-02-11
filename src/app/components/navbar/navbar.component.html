@@ -1,0 +1,6 @@
+<nz-page-header nzTitle="EzzeApp" nzSubtitle="changing the world" class="navbar">
+    <nz-page-header-extra>
+        <button nz-button [nzSize]="size" nzType="default" (click)="auth.login()" *ngIf="!auth.loggedIn">login</button>
+        <button nz-button [nzSize]="size" nzType="default" *ngIf="auth.loggedIn" (click)="controlPanel()">control panel</button>
+    </nz-page-header-extra>
+</nz-page-header>
