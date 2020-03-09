@@ -1,6 +1,13 @@
-<nz-page-header nzTitle="EzzeApp" nzSubtitle="changing the world" class="navbar">
-    <nz-page-header-extra>
-        <button nz-button [nzSize]="size" nzType="default" (click)="auth.login()" *ngIf="!auth.loggedIn">login</button>
-        <button nz-button [nzSize]="size" nzType="default" *ngIf="auth.loggedIn" (click)="controlPanel()">control panel</button>
-    </nz-page-header-extra>
-</nz-page-header>
+<ul nz-menu nzMode="horizontal">
+    <li nz-menu-item routerLinkActive="nzSelected" [routerLink]="['/home']">
+        <i nz-icon nzType="home"></i>
+        HOME
+    </li>
+    <li nz-menu-item routerLinkActive="nzSelected" *ngIf="auth.loggedIn" [routerLink]="['/main']">
+        <i nz-icon nzType="layout"></i>
+        CONTROL PANEL
+    </li>
+
+    <button nz-button nzType="default" *ngIf="!auth.loggedIn" (click)="auth.login()">login</button>
+    <button nz-button nzType="danger" *ngIf="auth.loggedIn" (click)="auth.logout()">logout</button>
+</ul>

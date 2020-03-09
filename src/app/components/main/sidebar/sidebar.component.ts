@@ -5,62 +5,36 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Quote } from '@angular/compiler';
 import { AuthService } from '../../../services/auth.service';
+import { UserAccountService } from '../../../services/user-account.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.sass']
+  styleUrls: ['./sidebar.component.sass'],
 })
 export class SidebarComponent implements OnInit, OnChanges {
-  @Input() cardInfo: Card;
-  visible = false;
-  show = true;
-  data = [
-    {
-      name: 'Lily'
-    }
-  ];
+  @Input() card: Card;
+  userInfo: any;
 
-  constructor(private cardsService: CardService, private router: Router, public auth: AuthService) {
+  constructor(
+    private cardsService: CardService,
+    private router: Router,
+    public auth: AuthService
+  ) {
     this.cardsService.getAppointments(1, 1, 1).then((data: Card[]) => {
-      this.cardInfo = data[0];
+      this.card = data[0];
+    });
+
+    this.auth.userProfile$.subscribe((user: any) => {
+      this.userInfo = user;
     });
   }
 
-  ngOnInit() {
-    if (window.screen.width <= 840) {
-      this.show = false;
-    }
-  }
+  ngOnInit() {}
 
-  ngOnChanges(): void {
-  }
+  ngOnChanges(): void {}
 
   editAppointment() {
-    Swal.fire({
-      title: 'Loading...',
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      onOpen: () => {
-        Swal.showLoading();
-      }
-    });
-
-    this.cardsService.getQuoteInfo(String(this.cardInfo.quoteNumberItc)).then((data: Quote) => {
-      this.cardsService.infoQuote = data;
-      Swal.close();
-      this.router.navigateByUrl('/edit');
-    }).catch((err) => {
-      throw err;
-    });
+    this.router.navigate(['/edit', this.card.idAppointment]);
   }
-
-  open(): void {
-    this.visible = true;
-  }
-
-  close(): void {
-    this.visible = false;
-  }
-
 }

@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.14",
     "@auth0/auth0-spa-js": "^1.6.3",
     "axios": "^0.19.2",
+    "moment": "^2.24.0",
     "ng-zorro-antd": "^8.5.2",
     "rxjs": "~6.4.0",
     "sweetalert2": "^9.7.2",

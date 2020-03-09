@@ -1,6 +1,7 @@
-<nz-card class="card" [nzTitle]="card.fullName | uppercase" [nzExtra]="extraTemplate" [nzActions]="[actionEdit, seeMore]">
+<nz-card class="card" [nzTitle]="card.fullName | uppercase" [nzExtra]="extraTemplate"
+    [nzActions]="[actionEdit, seeMore]">
     <p>Mobile: {{card.cellPhone}}</p>
-    <p>Date: {{card.createdOn | date: 'M/d/yy'}}</p>
+    <p>Date: {{card.dateTimeAppointment | date: 'M/d/yy'}}</p>
     <p>Type: {{card.statusTypeName}}</p>
     <p>Status: {{card.active}}</p>
 </nz-card>

@@ -17,11 +17,11 @@ export interface Quote {
   idOfficeFrom: number;
   idOfficeTo: number;
   idStatusType: any;
-  createdOn: string;
-  dateTimeAppointment: string;
+  createdOn: Date;
+  dateTimeAppointment: Date;
   usr: any;
   csr: any;
-  lastUpdate: string;
+  lastUpdate: Date;
   idStatus: number;
   custId: any;
   expired: boolean;

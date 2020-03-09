@@ -1,3 +1,91 @@
-<nz-page-header (nzBack)="onBack()" nzBackIcon nzTitle="Add Appointment"></nz-page-header>
-<div nz-col nzSpan="16" nzOffset="4" class="container">
-</div>
+<form nz-form class="edit-form">
+    <nz-form-item>
+        <h1>Add appointment</h1>
+        <nz-form-label [nzSpan]="6" nzFor="quote">Quote</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="quote" (ngModel)="newAppointment.QuoteNumberItc" type="text" id="quote">
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="firstName">First name</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="firstName" (ngModel)="newAppointment.FirstName" type="text" id="firstName">
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="lastName">Last name</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="lastName" (ngModel)="newAppointment.Lastname" type="text" id="lastName">
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="cellphone">Cellphone</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="cellphone" (ngModel)="newAppointment.CellPhone" type="text" id="cellphone">
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="homephone">Homephone</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="homephone" (ngModel)="newAppointment.HomePhone" type="text" id="homephone">
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="address">Address</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="address" (ngModel)="newAppointment.Address" type="text" id="address">
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="city">City</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="city" (ngModel)="newAppointment.City" type="text" id="city">
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="state">State</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="state" type="text" (ngModel)="newAppointment.State" id="state">
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="zip">ZIP</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="zip" (ngModel)="newAppointment.Zip" type="text" id="zip">
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="date">Language</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <nz-select nzPlaceHolder="Choose" (ngModel)="newAppointment.IdLanguage" name="language">
+                <nz-option *ngFor="let lan of languages" [nzValue]="lan.idLanguage" [nzLabel]="lan.language1">
+                </nz-option>
+            </nz-select>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="office_from">Office from</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <nz-select nzPlaceHolder="Choose" name="office_from" (ngModel)="newAppointment.IdOfficeFrom">
+                <nz-option *ngFor="let lan of officeFrom" [nzValue]="lan.idOffice" [nzLabel]="lan.officeName">
+                </nz-option>
+            </nz-select>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="office_to">Office to</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <nz-select nzPlaceHolder="Choose" name="office_to" (ngModel)="newAppointment.IdOfficeTo">
+                <nz-option *ngFor="let lan of officeTo" [nzValue]="lan.idOffice" [nzLabel]="lan.officeName">
+                </nz-option>
+            </nz-select>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="status">Status</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <nz-select nzPlaceHolder="Choose" name="status" (ngModel)="newAppointment.IdStatus">
+                <nz-option *ngFor="let lan of status" [nzValue]="lan.idStatusType" [nzLabel]="lan.statusTypeName">
+                </nz-option>
+            </nz-select>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="status_type">Status type</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <nz-select nzPlaceHolder="Choose" name="status_type" (ngModel)="newAppointment.IdStatusType">
+                <nz-option *ngFor="let lan of types" [nzValue]="lan.idStatus" [nzLabel]="lan.statusAppointment1">
+                </nz-option>
+            </nz-select>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="date">Date/Time</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <nz-date-picker [ngModel]="" nzShowTime nzFormat="MM-dd-yy HH:mm:ss" nzPlaceHolder="Select Time" ngModel
+                (ngModelChange)="onChange($event)" (nzOnOk)="onOk($event)" name="date">
+            </nz-date-picker>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="6" nzFor="csr">CSR</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="csr" (ngModel)="newAppointment.Csr" type="text" id="csr">
+        </nz-form-control>
+
+        <nz-form-control [nzSpan]="24" class="buttons">
+            <button (click)="putAppointment()" nz-button nzSize="large" nzType="primary">Save</button>
+            <button (click)="printValue()" nz-button nzSize="large" nzType="danger">Cancel</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

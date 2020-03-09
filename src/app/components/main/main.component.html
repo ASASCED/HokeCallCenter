@@ -1,10 +1,10 @@
 <div class="container">
     <nz-affix>
-        <app-sidebar [cardInfo]="cardInfo" class="info-menu"></app-sidebar>
+        <app-sidebar [card]="card" class="info-menu"></app-sidebar>
     </nz-affix>
 
     <div class="cards">
-        <app-card (infoCard)="getSelectedCard($event)" *ngFor="let card of cardsInfo" class="card" [card]="card">
+        <app-card (infoCard)="getSelectedCard($event)" *ngFor="let card of cards" class="card" [card]="card">
         </app-card>
     </div>
 
@@ -14,4 +14,6 @@
             ADD NEW
         </button>
     </nz-affix>
+
+    <hr>
 </div>

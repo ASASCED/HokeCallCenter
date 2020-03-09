@@ -1,31 +1,58 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { Quote } from '@angular/compiler';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { CardService } from 'src/app/services/card.service';
-import { Router } from '@angular/router';
-
-import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { Observable, Observer } from 'rxjs';
+import { UserAccountService } from '../../../services/user-account.service';
+import { Appointment } from 'src/app/classes/appointment';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.sass']
+  styleUrls: ['./add.component.sass'],
 })
 export class AddComponent implements OnInit {
-  types: any[];
-  offices: any[];
-  status: any[];
-  languages: any[];
-  quoteInfo: Quote;
-  fullname: string;
+  statusType: any[] = [];
+  officeFrom: any[] = [];
+  languages: any[] = [];
+  officeTo: any[] = [];
+  status: any[] = [];
+  types: any[] = [];
+  idLogin: number;
 
-  constructor(private cardsService: CardService, private router: Router) {
+  newAppointment: Appointment;
+
+  constructor(
+    private cardsService: CardService,
+    private userAccount: UserAccountService
+  ) {
+    this.cardsService.getLanguages().then((data: any) => {
+      console.log(data);
+      this.languages = data;
+    });
+
+    this.cardsService.getOffices().then((data: any) => {
+      console.log(data);
+      this.officeFrom = data;
+      this.officeTo = data;
+    });
+
+    this.cardsService.getTypes().then((data: any) => {
+      console.log(data);
+      this.status = data;
+    });
+
+    this.cardsService.getStatus().then((data: any) => {
+      console.log(data);
+      this.types = data;
+    });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userAccount.userInfo().then((data: any) => {
+      this.idLogin = data.idlogin;
+      console.log(this.idLogin);
+    });
+  }
 
-  onBack() {
-    this.router.navigateByUrl('/main');
+  printValue() {
+    console.log(this.newAppointment.Csr);
   }
 }

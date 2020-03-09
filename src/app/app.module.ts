@@ -20,25 +20,25 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 registerLocaleData(en);
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        MainComponent,
-        AddComponent,
-        CardComponent,
-        SidebarComponent,
-        EditComponent,
-        HomeComponent,
-        NavbarComponent,
-    ],
-    imports: [
-        BrowserModule,
-        APP_ROUTING,
-        NgZorroAntdModule,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-    ],
-    providers: [{ provide: NZ_I18N, useValue: en_US }],
-    bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    MainComponent,
+    AddComponent,
+    CardComponent,
+    SidebarComponent,
+    EditComponent,
+    HomeComponent,
+    NavbarComponent,
+  ],
+  imports: [
+    BrowserModule,
+    APP_ROUTING,
+    NgZorroAntdModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+  ],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

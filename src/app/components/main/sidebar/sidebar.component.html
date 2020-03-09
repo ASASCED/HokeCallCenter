@@ -1,66 +1,21 @@
 <div class="wrap">
     <nz-page-header [nzGhost]="false">
-        <nz-page-header-title>{{cardInfo?.fullName | titlecase}}</nz-page-header-title>
-        <nz-page-header-extra class="avatar-header" *ngIf="show">
-            <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
-                <ng-template #item let-item>
-                    <nz-list-item [nzActions]="[viewAction]">
-                        <nz-list-item-meta class="avatar" (click)="open()" [nzTitle]="nzTitle" nzAvatar="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" nzDescription="Progresser AFX">
-                            <ng-template #nzTitle>
-                                <a href="https://ng.ant.design">{{ item.name }}</a>
-                            </ng-template>
-                        </nz-list-item-meta>
-                    </nz-list-item>
-                </ng-template>
-            </nz-list>
-            <nz-drawer [nzVisible]="visible" [nzWidth]="640" [nzClosable]="false" (nzOnClose)="close()">
-                <p class="title" style=" margin-bottom: 24px;">User Profile</p>
-                <nz-descriptions [nzColumn]="2" nzTitle="Personal">
-                    <nz-descriptions-item nzTitle="Full Name" [nzSpan]="1">Lily</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Account" [nzSpan]="1">AntDesign@example.com</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="City" [nzSpan]="1">HangZhou</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Country" [nzSpan]="1">China🇨🇳</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Birthday" [nzSpan]="1">February 2,1900</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Website" [nzSpan]="1"> - </nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Message" [nzSpan]="2">
-                        Make things as simple as possible but no simpler.
-                    </nz-descriptions-item>
-                </nz-descriptions>
-                <nz-divider></nz-divider>
-                <nz-descriptions [nzColumn]="2" nzTitle="Company">
-                    <nz-descriptions-item nzTitle="Position" [nzSpan]="1">Programmer</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Responsibilities" [nzSpan]="1">Coding</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Department" [nzSpan]="1">AFX</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Supervisor" [nzSpan]="1">Lin</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Skills" [nzSpan]="2">
-                        C / C + +, data structures, software engineering, operating systems, computer networks, databases, compiler theory, computer architecture, Microcomputer Principle and Interface Technology, Computer English, Java, ASP, etc.
-                    </nz-descriptions-item>
-                </nz-descriptions>
-                <nz-divider></nz-divider>
-                <nz-descriptions [nzColumn]="2" nzTitle="Contacts">
-                    <nz-descriptions-item nzTitle="Email" [nzSpan]="1">AntDesign@example.com</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Phone Number" [nzSpan]="1">+86 181 0000 0000</nz-descriptions-item>
-                    <nz-descriptions-item nzTitle="Github" [nzSpan]="2">
-                        <a (click)="auth.logout()" target="_blank">logout</a>
-                    </nz-descriptions-item>
-                </nz-descriptions>
-            </nz-drawer>
-        </nz-page-header-extra>
+        <nz-page-header-title>{{card?.fullName | titlecase}}</nz-page-header-title>
         <nz-page-header-content>
             <nz-descriptions [nzColumn]="3">
-                <nz-descriptions-item nzTitle="Quote" [nzSpan]="1">{{cardInfo?.quoteNumberItc}}</nz-descriptions-item>
-                <nz-descriptions-item nzTitle="Mobile" [nzSpan]="1">{{cardInfo?.cellPhone}}</nz-descriptions-item>
-                <nz-descriptions-item nzTitle="Address" [nzSpan]="1">{{cardInfo?.address}}</nz-descriptions-item>
-                <nz-descriptions-item nzTitle="Type" [nzSpan]="1">{{cardInfo?.statusTypeName}}</nz-descriptions-item>
-                <nz-descriptions-item nzTitle="Date" [nzSpan]="1">{{cardInfo?.dateTimeAppointment | date: 'M/d/yy'}}
+                <nz-descriptions-item nzTitle="Quote" [nzSpan]="1">{{card?.quoteNumberItc}}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Mobile" [nzSpan]="1">{{card?.cellPhone}}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Address" [nzSpan]="1">{{card?.address}}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Type" [nzSpan]="1">{{card?.statusTypeName}}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Date" [nzSpan]="1">{{card?.dateTimeAppointment | date: 'M/d/yy'}}
                 </nz-descriptions-item>
-                <nz-descriptions-item nzTitle="Created on" [nzSpan]="1">{{cardInfo?.createdOn | date: 'M/d/yy'}}
+                <nz-descriptions-item nzTitle="Created on" [nzSpan]="1">{{card?.createdOn | date: 'M/d/yy'}}
                 </nz-descriptions-item>
-                <nz-descriptions-item nzTitle="Language" [nzSpan]="1">{{cardInfo?.language1}}</nz-descriptions-item>
-                <nz-descriptions-item nzTitle="Status" [nzSpan]="1">{{cardInfo?.active}}</nz-descriptions-item>
-                <nz-descriptions-item nzTitle="USR" [nzSpan]="1">{{cardInfo?.usr}}</nz-descriptions-item>
-                <nz-descriptions-item nzTitle="CSR" [nzSpan]="1">{{cardInfo?.csr}}</nz-descriptions-item>
-                <nz-descriptions-item nzTitle="Office from" [nzSpan]="1">{{cardInfo?.officeNameFrom}}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Language" [nzSpan]="1">{{card?.language1}}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Status" [nzSpan]="1">{{card?.active}}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="USR" [nzSpan]="1">{{card?.usr}}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="CSR" [nzSpan]="1">{{card?.csr}}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Office from" [nzSpan]="1">{{card?.officeNameFrom}}</nz-descriptions-item>
             </nz-descriptions>
             <button (click)="editAppointment()" nz-button nzType="danger" nzSize="large">Edit</button>
         </nz-page-header-content>

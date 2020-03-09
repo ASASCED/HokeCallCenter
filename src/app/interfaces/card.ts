@@ -1,5 +1,5 @@
 export interface Card {
-  idAppointment: number;
+  idAppointment?: number;
   quoteNumberItc: number;
   idContactSendHub: any;
   firstName: string;
@@ -10,7 +10,7 @@ export interface Card {
   city: string;
   state: string;
   zip: string;
-  createdOn: string;
+  createdOn: Date;
   dateTimeAppointment: string;
   usr: any;
   csr: string;
