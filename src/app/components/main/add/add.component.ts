@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { CardService } from 'src/app/services/card.service';
 import { UserAccountService } from '../../../services/user-account.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -22,23 +22,31 @@ export class AddComponent implements OnInit {
   newDate: string;
 
   newAppointment: FormGroup = new FormGroup({
-    QuoteNumberItc: new FormControl(''),
-    IdLogin: new FormControl(''),
-    FirstName: new FormControl(''),
-    Lastname: new FormControl(''),
-    CellPhone: new FormControl(''),
-    HomePhone: new FormControl(''),
-    Address: new FormControl(''),
-    City: new FormControl(''),
-    State: new FormControl(''),
-    Zip: new FormControl(''),
-    DateTimeAppointment: new FormControl(''),
-    Csr: new FormControl(''),
-    IdLanguage: new FormControl(''),
-    IdStatusType: new FormControl(''),
-    IdOfficeFrom: new FormControl(''),
-    IdOfficeTo: new FormControl(''),
-    IdStatus: new FormControl(''),
+    QuoteNumberItc: new FormControl('', Validators.required),
+    IdLogin: new FormControl('', Validators.required),
+    FirstName: new FormControl('', Validators.required),
+    Lastname: new FormControl('', Validators.required),
+    CellPhone: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10),
+    ]),
+    HomePhone: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10),
+    ]),
+    Address: new FormControl('', Validators.required),
+    City: new FormControl('', Validators.required),
+    State: new FormControl('', Validators.required),
+    Zip: new FormControl('', Validators.required),
+    DateTimeAppointment: new FormControl('', Validators.required),
+    Csr: new FormControl('', Validators.required),
+    IdLanguage: new FormControl('', Validators.required),
+    IdStatusType: new FormControl('', Validators.required),
+    IdOfficeFrom: new FormControl('', Validators.required),
+    IdOfficeTo: new FormControl('', Validators.required),
+    IdStatus: new FormControl('', Validators.required),
   });
 
   constructor(

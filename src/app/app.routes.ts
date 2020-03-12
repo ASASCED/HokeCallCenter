@@ -7,7 +7,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { SearchAppointmentComponent } from './components/main/search-appointment/search-appointment.component';
 
 const APP_ROUTES: Routes = [
-  { path: 'add', component: AddComponent, canActivate: [] },
+  { path: 'add', component: AddComponent, canActivate: [AuthGuard] },
   { path: 'main', component: MainComponent, canActivate: [AuthGuard] },
   { path: 'edit/:id', component: EditComponent, canActivate: [AuthGuard] },
   {

@@ -4,6 +4,10 @@
     <nz-form-label [nzSpan]="6" nzFor="quote">Quote</nz-form-label>
     <nz-form-control [nzSpan]="14">
       <input
+        [class.in-error]="
+          newAppointment.get('QuoteNumberItc').touched &&
+          newAppointment.get('QuoteNumberItc').invalid
+        "
         nz-input
         name="quote"
         formControlName="QuoteNumberItc"
@@ -14,6 +18,10 @@
     <nz-form-label [nzSpan]="6" nzFor="firstName">First name</nz-form-label>
     <nz-form-control [nzSpan]="14">
       <input
+        [class.in-error]="
+          newAppointment.get('FirstName').touched &&
+          newAppointment.get('FirstName').invalid
+        "
         nz-input
         name="firstName"
         formControlName="FirstName"
@@ -24,6 +32,10 @@
     <nz-form-label [nzSpan]="6" nzFor="lastName">Last name</nz-form-label>
     <nz-form-control [nzSpan]="14">
       <input
+        [class.in-error]="
+          newAppointment.get('Lastname').touched &&
+          newAppointment.get('Lastname').invalid
+        "
         nz-input
         name="lastName"
         formControlName="Lastname"
@@ -34,6 +46,10 @@
     <nz-form-label [nzSpan]="6" nzFor="cellphone">Cellphone</nz-form-label>
     <nz-form-control [nzSpan]="14">
       <input
+        [class.in-error]="
+          newAppointment.get('CellPhone').touched &&
+          newAppointment.get('CellPhone').invalid
+        "
         nz-input
         name="cellphone"
         formControlName="CellPhone"
@@ -44,6 +60,10 @@
     <nz-form-label [nzSpan]="6" nzFor="homephone">Homephone</nz-form-label>
     <nz-form-control [nzSpan]="14">
       <input
+        [class.in-error]="
+          newAppointment.get('HomePhone').touched &&
+          newAppointment.get('HomePhone').invalid
+        "
         nz-input
         name="homephone"
         formControlName="HomePhone"
@@ -54,6 +74,10 @@
     <nz-form-label [nzSpan]="6" nzFor="address">Address</nz-form-label>
     <nz-form-control [nzSpan]="14">
       <input
+        [class.in-error]="
+          newAppointment.get('HomePhone').touched &&
+          newAppointment.get('HomePhone').invalid
+        "
         nz-input
         name="address"
         formControlName="Address"
@@ -64,6 +88,10 @@
     <nz-form-label [nzSpan]="6" nzFor="city">City</nz-form-label>
     <nz-form-control [nzSpan]="14">
       <input
+        [class.in-error]="
+          newAppointment.get('City').touched &&
+          newAppointment.get('City').invalid
+        "
         nz-input
         name="city"
         formControlName="City"
@@ -74,6 +102,10 @@
     <nz-form-label [nzSpan]="6" nzFor="state">State</nz-form-label>
     <nz-form-control [nzSpan]="14">
       <input
+        [class.in-error]="
+          newAppointment.get('State').touched &&
+          newAppointment.get('State').invalid
+        "
         nz-input
         name="state"
         formControlName="State"
@@ -83,7 +115,16 @@
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="zip">ZIP</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <input nz-input name="zip" formControlName="Zip" type="text" id="zip" />
+      <input
+        [class.in-error]="
+          newAppointment.get('Zip').touched && newAppointment.get('Zip').invalid
+        "
+        nz-input
+        name="zip"
+        formControlName="Zip"
+        type="text"
+        id="zip"
+      />
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="date">Language</nz-form-label>
     <nz-form-control [nzSpan]="14">
@@ -91,6 +132,10 @@
         formControlName="IdLanguage"
         nzPlaceHolder="Choose"
         name="language"
+        [class.in-error]="
+          newAppointment.get('IdLanguage').touched &&
+          newAppointment.get('IdLanguage').invalid
+        "
       >
         <nz-option
           *ngFor="let lan of languages"
@@ -106,6 +151,10 @@
         formControlName="IdOfficeFrom"
         nzPlaceHolder="Choose"
         name="office_from"
+        [class.in-error]="
+          newAppointment.get('IdOfficeFrom').touched &&
+          newAppointment.get('IdOfficeFrom').invalid
+        "
       >
         <nz-option
           *ngFor="let lan of officeFrom"
@@ -121,6 +170,10 @@
         formControlName="IdOfficeTo"
         nzPlaceHolder="Choose"
         name="office_to"
+        [class.in-error]="
+          newAppointment.get('IdOfficeTo').touched &&
+          newAppointment.get('IdOfficeTo').invalid
+        "
       >
         <nz-option
           *ngFor="let lan of officeTo"
@@ -136,6 +189,10 @@
         formControlName="IdStatus"
         nzPlaceHolder="Choose"
         name="status"
+        [class.in-error]="
+          newAppointment.get('IdStatus').touched &&
+          newAppointment.get('IdStatus').invalid
+        "
       >
         <nz-option
           *ngFor="let lan of types"
@@ -151,6 +208,10 @@
         formControlName="IdStatusType"
         nzPlaceHolder="Choose"
         name="status_type"
+        [class.in-error]="
+          newAppointment.get('IdStatusType').touched &&
+          newAppointment.get('IdStatusType').invalid
+        "
       >
         <nz-option
           *ngFor="let lan of status"
@@ -163,6 +224,10 @@
     <nz-form-label [nzSpan]="6" nzFor="date">Date/Time</nz-form-label>
     <nz-form-control [nzSpan]="14">
       <nz-date-picker
+        [class.in-error]="
+          newAppointment.get('DateTimeAppointment').touched &&
+          newAppointment.get('DateTimeAppointment').invalid
+        "
         nzShowTime
         nzFormat="MM-dd-yy HH:mm:ss"
         nzPlaceHolder="Select Time"
@@ -176,7 +241,16 @@
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="csr">CSR</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <input formControlName="Csr" nz-input name="csr" type="text" id="csr" />
+      <input
+        [class.in-error]="
+          newAppointment.get('Csr').touched && newAppointment.get('Csr').invalid
+        "
+        formControlName="Csr"
+        nz-input
+        name="csr"
+        type="text"
+        id="csr"
+      />
     </nz-form-control>
 
     <nz-form-control [nzSpan]="24" class="buttons">
