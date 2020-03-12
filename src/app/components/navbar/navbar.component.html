@@ -1,13 +1,41 @@
 <ul nz-menu nzMode="horizontal">
-    <li nz-menu-item routerLinkActive="nzSelected" [routerLink]="['/home']">
-        <i nz-icon nzType="home"></i>
-        HOME
-    </li>
-    <li nz-menu-item routerLinkActive="nzSelected" *ngIf="auth.loggedIn" [routerLink]="['/main']">
-        <i nz-icon nzType="layout"></i>
-        CONTROL PANEL
-    </li>
+  <li nz-menu-item routerLinkActive="nzSelected" [routerLink]="['/home']">
+    <i nz-icon nzType="home"></i>
+    HOME
+  </li>
+  <li
+    nz-menu-item
+    routerLinkActive="nzSelected"
+    *ngIf="auth.loggedIn"
+    [routerLink]="['/main']"
+  >
+    <i nz-icon nzType="layout"></i>
+    CONTROL PANEL
+  </li>
 
-    <button nz-button nzType="default" *ngIf="!auth.loggedIn" (click)="auth.login()">login</button>
-    <button nz-button nzType="danger" *ngIf="auth.loggedIn" (click)="auth.logout()">logout</button>
+  <button
+    nz-button
+    nzType="default"
+    *ngIf="!auth.loggedIn"
+    (click)="auth.login()"
+  >
+    login
+  </button>
+  <button
+    nz-button
+    nzType="danger"
+    *ngIf="auth.loggedIn"
+    (click)="auth.logout()"
+  >
+    logout
+  </button>
 </ul>
+
+<div class="sercher" *ngIf="auth.loggedIn">
+  <input
+    placeholder="input here"
+    nz-input
+    (keyup.enter)="searchAppointment(searchText.value)"
+    #searchText
+  />
+</div>

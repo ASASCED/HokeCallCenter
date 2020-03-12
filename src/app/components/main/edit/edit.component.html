@@ -3,69 +3,157 @@
     <h1>General Info</h1>
     <nz-form-label [nzSpan]="6" nzFor="firstName">First name</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <input [(ngModel)]="card.firstName" nz-input name="firstName" type="text" id="firstName" disabled>
+      <input
+        [(ngModel)]="card.firstName"
+        nz-input
+        name="firstName"
+        type="text"
+        id="firstName"
+        disabled
+      />
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="middleName">Middle Name</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <input [(ngModel)]="card.middleName" nz-input name="middleName" type="text" id="middleName" disabled>
+      <input
+        [(ngModel)]="card.middleName"
+        nz-input
+        name="middleName"
+        type="text"
+        id="middleName"
+        disabled
+      />
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="lastName">Last name</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <input [(ngModel)]="card.lastname" nz-input name="lastName" type="text" id="lastName" disabled>
+      <input
+        [(ngModel)]="card.lastname"
+        nz-input
+        name="lastName"
+        type="text"
+        id="lastName"
+        disabled
+      />
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="homePhone">Homephone</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <input [(ngModel)]="card.homePhone" nz-input name="homePhone" type="text" id="homePhone" disabled>
+      <input
+        [(ngModel)]="card.homePhone"
+        nz-input
+        name="homePhone"
+        type="text"
+        id="homePhone"
+        disabled
+      />
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="cellPhone">Cellphone</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <input [(ngModel)]="card.cellPhone" nz-input name="cellPhone" type="text" id="cellPhone" disabled>
+      <input
+        [(ngModel)]="card.cellPhone"
+        nz-input
+        name="cellPhone"
+        type="text"
+        id="cellPhone"
+        disabled
+      />
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <h1>Customer Address</h1>
     <nz-form-label [nzSpan]="6" nzFor="address">Address</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <input [(ngModel)]="card.address" nz-input name="address" type="text" id="address" disabled>
+      <input
+        [(ngModel)]="card.address"
+        nz-input
+        name="address"
+        type="text"
+        id="address"
+        disabled
+      />
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="city">City</nz-form-label>
     <nz-form-control [nzSpan]="6">
-      <input [(ngModel)]="card.city" nz-input name="city" type="text" id="city" disabled>
+      <input
+        [(ngModel)]="card.city"
+        nz-input
+        name="city"
+        type="text"
+        id="city"
+        disabled
+      />
     </nz-form-control>
     <nz-form-label [nzSpan]="2" nzFor="state">State</nz-form-label>
     <nz-form-control [nzSpan]="6">
-      <input [(ngModel)]="card.state" nz-input name="state" type="text" id="state" disabled>
+      <input
+        [(ngModel)]="card.state"
+        nz-input
+        name="state"
+        type="text"
+        id="state"
+        disabled
+      />
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="zip">ZIP</nz-form-label>
     <nz-form-control [nzSpan]="6">
-      <input [(ngModel)]="card.zip" nz-input name="zip" type="text" id="zip" disabled>
+      <input
+        [(ngModel)]="card.zip"
+        nz-input
+        name="zip"
+        type="text"
+        id="zip"
+        disabled
+      />
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-label [nzSpan]="6" nzFor="date">Language</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <nz-select nzPlaceHolder="Choose" [(ngModel)]="card.language1" name="language">
-        <nz-option *ngFor="let lan of languages" [nzValue]="lan.language1" [nzLabel]="lan.language1"></nz-option>
+      <nz-select
+        nzPlaceHolder="Choose"
+        [(ngModel)]="card.language1"
+        name="language"
+      >
+        <nz-option
+          *ngFor="let lan of languages"
+          [nzValue]="lan.language1"
+          [nzLabel]="lan.language1"
+        ></nz-option>
       </nz-select>
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="date">Date/Time</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <nz-date-picker [ngModel]="card.dateTimeAppointment" nzShowTime nzFormat="MM-dd-yy HH:mm:ss"
-        nzPlaceHolder="Select Time" ngModel (ngModelChange)="onChange($event)" (nzOnOk)="onOk($event)" name="date">
+      <nz-date-picker
+        [ngModel]="card.dateTimeAppointment"
+        nzShowTime
+        nzFormat="MM-dd-yy HH:mm:ss"
+        nzPlaceHolder="Select Time"
+        ngModel
+        (ngModelChange)="onChange($event)"
+        (nzOnOk)="onOk($event)"
+        name="date"
+      >
       </nz-date-picker>
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="usr">USR</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <input [(ngModel)]="card.usr" nz-input name="usr" type="text" id="usr">
+      <input [(ngModel)]="card.usr" nz-input name="usr" type="text" id="usr" />
     </nz-form-control>
     <nz-form-label [nzSpan]="6" nzFor="csr">CSR</nz-form-label>
     <nz-form-control [nzSpan]="14">
-      <input [(ngModel)]="card.csr" nz-input name="csr" type="text" id="csr">
+      <input [(ngModel)]="card.csr" nz-input name="csr" type="text" id="csr" />
     </nz-form-control>
 
     <nz-form-control [nzSpan]="24" class="buttons">
-      <button (click)="putAppointment()" nz-button nzSize="large" nzType="primary">Save</button>
-      <button (click)="onBack()" nz-button nzSize="large" nzType="danger">Cancel</button>
+      <button
+        (click)="putAppointment()"
+        nz-button
+        nzSize="large"
+        nzType="primary"
+      >
+        Save
+      </button>
+      <button (click)="onBack()" nz-button nzSize="large" nzType="danger">
+        Cancel
+      </button>
     </nz-form-control>
   </nz-form-item>
 </form>

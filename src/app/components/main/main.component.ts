@@ -12,13 +12,13 @@ import { UserAccountService } from '../../services/user-account.service';
   styleUrls: ['./main.component.sass'],
 })
 export class MainComponent implements OnInit {
-  cards: Card[];
+  cards: Card[] = [];
   card: Card;
   buttonAdd = true;
-  inputValue: number;
+  cardsNumber: number = 20;
 
   constructor(
-    private cardsService: CardService,
+    private cardService: CardService,
     private router: Router,
     public auth: AuthService,
     private userAccount: UserAccountService
@@ -33,8 +33,8 @@ export class MainComponent implements OnInit {
         },
       });
 
-      this.cardsService
-        .getAppointments(user.idlogin, 1, 20)
+      this.cardService
+        .getAppointments(user.idlogin, 1, this.cardsNumber)
         .then(data => {
           this.cards = data;
           Swal.close();
@@ -61,7 +61,7 @@ export class MainComponent implements OnInit {
     this.card = event;
   }
 
-  async addNewAppointment() {
+  addNewAppointment() {
     this.router.navigateByUrl('/add');
   }
 }

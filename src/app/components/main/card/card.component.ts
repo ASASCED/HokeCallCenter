@@ -22,7 +22,7 @@ export class CardComponent implements OnInit {
     this.infoCard.emit(this.card);
   }
 
-  async editAppointment() {
+  editAppointment() {
     this.cardsService.card = this.card;
     this.router.navigate(['/edit', this.card.idAppointment]);
   }

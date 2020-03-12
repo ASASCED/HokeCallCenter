@@ -6,7 +6,7 @@
   <div class="cards">
     <app-card
       (infoCard)="getSelectedCard($event)"
-      *ngFor="let card of cards"
+      *ngFor="let card of appointments"
       class="card"
       [card]="card"
     >
@@ -25,17 +25,5 @@
       ADD NEW
     </button>
   </nz-affix>
-  <hr />
-
-  <div class="btn-more">
-    <button
-      (click)="cardsNumber = cardsNumber + 5"
-      nz-button
-      nzType="danger"
-      nzBlock
-    >
-      More...
-    </button>
-  </div>
   <hr />
 </div>
